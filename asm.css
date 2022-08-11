@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+.navBar {
+  background: #fff8e7;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 2px solid black */
+  height: 10vh;
+}
+.logoContainer {
+  width: 6%;
+}
+.logoContainer img {
+  width: 100%;
+}
+.dropdownContainer {
+  width: 34%;
+  display: flex;
+  flex-direction: row;
+}
+.inputForm {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inputForm input {
+  border: none;
+  outline: none;
+  padding: 3%;
+  border-radius: 10px;
+  width: 87%;
+  margin-right: 3%;
+}
+.inputForm img {
+  width: 8%;
+  cursor: pointer;
+}
+.inputForm > input {
+  font-size : 16px;
+}
+.customerAreaContainer {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.customerAreaContainer img {
+  width: 3%;
+  margin-right: 8%;
+  cursor: pointer;
+}
+
+.dropdown {
+  float: left;
+  margin-left: 5%;
+}
+.dropbtn {
+  border: none;
+  background-color: #fff8e7;
+  outline: none;
+  height: 100px;
+  width: 90px;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+.dropbtn:hover {
+  background-color: rgb(202, 202, 202);
+}
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: white;
+  margin-top: 1px;
+  z-index: 1;
+  width: 140px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  visibility: hidden;
+}
+.dropdownItem {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  text-decoration: none;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+.dropdownItem :hover {
+  background-color: rgb(202, 202, 202);
+}
+
+.chooseItemContainer {
+  width: 15%;
+}
+
+/* login.html */
+.login-form {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-right: 120px;
+  flex-direction: column;
+  height: 90vh;
+  background: rgb(255, 221, 225); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.loginInputContainer {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 2%;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div > button {
+  background-color: #fff8e7;
+}
+
+.loginInputContainer input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  border: 0, 8px solid black;
+}
+
+.loginInputContainer > button {
+  margin-top: 10px;
+  border-radius: 6px;
+  width: 50%;
+}
+
+.loginInputContainer > img {
+  box-sizing: border-box;
+  width: 120%;
+}
+
+.shopIMG {
+  width: 80%;
+  height: 500px;
+  box-sizing: border-box;
+}
+
+.shopImgContainer {
+  height: 200px;
+  margin-left: 5px;
+}
+
+
+
+
+
+
+
