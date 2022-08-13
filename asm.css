@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+.body {
+  overflow: clip;
+}
+
 .navBar {
   background: #fff8e7;
   overflow: hidden;
@@ -97,17 +101,33 @@
   background-color: rgb(202, 202, 202);
 }
 
-.chooseItemContainer {
+.sideNavigationBar {
+  position: fixed;
+  left: 0px;
   width: 15%;
+  border: 1px solid black;
+  border-radius: 10px;
+  background:rgb(202, 202, 202);
+}
+
+.moneyContainer input {
+  height: 25px;
+  width : 40px;
+  margin-left: 25px;
+  border-radius: 10px;
+}
+
+.checked {
+  color: orange;
 }
 
 /* login.html */
 .login-form {
   width: 100%;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  padding-right: 120px;
+  /* padding-right: 120px; */
   flex-direction: column;
   height: 90vh;
   background: rgb(255, 221, 225); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -157,7 +177,15 @@ div > button {
   margin-left: 5px;
 }
 
+.customerAreaContainer .logoutButton {
+  margin-right: 30px;
+}
 
+.customerAreaContainer button {
+  width :57px;
+  height :30px;
+  background: #fff8e7;
+}
 
 
 

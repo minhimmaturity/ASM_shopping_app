@@ -1,9 +1,9 @@
 <?php
 $hostname = 'localhost';
 $username = 'root';
-$password = '';
+$password = 'root';
 $dbname = 'electric shop';
-$port = 3306;
+$port = 8889;
 function query ($sql = "") {
     global $hostname;
     global $username;

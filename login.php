@@ -35,9 +35,9 @@
       </div>
     </body>
     <form class="login-form" method = "post" action ="">
-      <div class = "shopImgContainer"> 
+      <!-- <div class = "shopImgContainer"> 
         <img src = "Assets/Images/shop.png" class = "shopIMG">
-      </div>
+      </div> -->
       <div class="loginInputContainer">
         <input class="form-control" type="text" placeholder="Enter username" name = "username"/>
         <input class="form-control" type="text" placeholder="Enter password" name = "password"/>
@@ -56,23 +56,26 @@
        
     $username = $_POST['username'] ;
     $password = $_POST['password'] ;
-    if(true) {
+      if($username == 'admin' && $password == 'admin') {
+        header("location:admin.php");
+      }
+      else if(true) {
         header("location:index.php");
-    } else {  
+      } else {  
         header("location:login.php");
-    }
+      }
 }
-?><?php
+?>
+<?php
 function isValid ($accounts, $username, $password) {
     for($i = 0; $i < count($accounts); $i++) {
-        if($accounts[$i][1] == $username && $accounts[$i][2] == $password) {
+        if($accounts[$i][1] == $username && $accounts[$i][2] == $password 
+        && $accounts[$i][1] != 'admin' && $accounts[$i][2] != 'admin') {
             return true;
         }
         return false;
     }
 }
 ?>
-
-
   </body>
 </html>
