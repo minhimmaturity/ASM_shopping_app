@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
-.body {
-  overflow: clip;
-}
-
 .navBar {
   background: #fff8e7;
   overflow: hidden;
@@ -108,6 +104,12 @@
   border: 1px solid black;
   border-radius: 10px;
   background:rgb(202, 202, 202);
+}
+
+.screenContainer {
+  position: fixed;
+  right: 0px;
+  width: 85%;
 }
 
 .moneyContainer input {
