@@ -53,60 +53,63 @@
     </div>
   </div>
   <script src="index.js"></script>
-  <div class="sideNavigationBar">
-    <p>Device</p>
-    <?php
-    include_once('device.php');
-    ?>
-    <p> Brand </p>
-    <?php
-    include_once('brand.php');
-    ?>
-    <div class="moneyContainer">
-      <p> Limit Price</p>
-      <input type="text" placeholder="Min"> -
-      <input type="text" placeholder="Max"></input></input>
-    </div>
-    <div class="starRating">
-      <p>Star rating</p>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <input type="checkbox" class="oneStar">
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star "></span>
-      <span class="fa fa-star "></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-      </input> <br>
-      <input type="checkbox" class="twoStar">
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star "></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-      </input> <br>
-      <input type="checkbox" class="threeStar">
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span>
-      </input> <br>
-      <input type="checkbox" class="fourStar">
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star"></span>
-      </input> <br>
-      <input type="checkbox" class="fiveStar">
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      </input> <br>
+  <div style = "width: 15%; height: 0px;">
+    <div class="sideNavigationBar">
+      <p>Device</p>
+      <?php
+      include_once('device.php');
+      ?>
+      <p> Brand </p>
+      <?php
+      include_once('brand.php');
+      ?>
+      <div class="moneyContainer">
+        <p> Limit Price</p>
+        <input type="text" placeholder="Min"> -
+        <input type="text" placeholder="Max"></input></input>
+      </div>
+      <div class="starRating">
+        <p>Star rating</p>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <input type="checkbox" class="oneStar">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star "></span>
+        <span class="fa fa-star "></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        </input> <br>
+        <input type="checkbox" class="twoStar">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star "></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        </input> <br>
+        <input type="checkbox" class="threeStar">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        </input> <br>
+        <input type="checkbox" class="fourStar">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        </input> <br>
+        <input type="checkbox" class="fiveStar">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        </input> <br>
+      </div>
     </div>
   </div>
+  <div style = "width: 80%; margin-left: 250px;">
   <div class="screenContainer">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
@@ -129,21 +132,7 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
+  </div>
   </div>
 </body>
 </html>
