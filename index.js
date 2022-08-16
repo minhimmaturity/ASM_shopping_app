@@ -1,17 +1,13 @@
-const toggleElement = (buttonId, elementId) => {
-  const btn = document.getElementById(buttonId);
-  const element = document.getElementById(elementId);
-  btn.addEventListener("click", () => {
-    if (element.style.visibility == "unset") {
-      element.style.visibility = "hidden";
-    } else {
-      element.style.visibility = "unset";
-    }
-  });
-};
+const toggleElemet = (buttonID, elementID) => {
+    const side = document.getElementById(buttonID);
+    const nav = document.getElementById(elementID);
+    side.addEventListener("click", () => {
+        if (nav.style.visibility == "unset") {
+            nav.style.visibility = "hidden";
+        } else {
+            nav.style.visibility = "unset";
+        }
+    })
+}
 
-toggleElement("deviceDropdownBtn", "deviceDropdownContent");
-toggleElement("brandDropdownBtn", "brandDropdownContent");
-
-
-
+toggleElemet("hamButton", "sideNavBar");

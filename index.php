@@ -12,34 +12,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-<body class="body" style="padding: 0; margin: 0; overflow-y: scroll">
+<body class="body" style="padding: 0; margin: 0">
   <div class="navBar">
     <div class="logoContainer">
       <img src="Assets/Images/electric-shop.png" alt="" />
     </div>
-    <div class="dropdownContainer">
-      <div class="dropdown">
-        <button class="dropbtn" id="deviceDropdownBtn">Devices</button>
-        <div class="dropdown-content" id="deviceDropdownContent">
-          <label class="dropdownItem"> Smart Phone</label>
-          <label class="dropdownItem"> Laptop</label>
-          <label class="dropdownItem"> Tablet</label>
-          <label class="dropdownItem"> HeadPhone</label>
-          <label class="dropdownItem"> Watch</label>
-        </div>
-      </div>
-      <div class="dropdown">
-        <button class="dropbtn" id="brandDropdownBtn">Brand</button>
-        <div class="dropdown-content" id="brandDropdownContent">
-          <label class="dropdownItem"> Apple </label>
-          <label class="dropdownItem"> Samsung </label>
-          <label class="dropdownItem"> Xiaomi </label>
-          <label class="dropdownItem"> MSI </label>
-          <label class="dropdownItem"> Microsoft </label>
-          <label class="dropdownItem"> DELL </label>
-          <label class="dropdownItem"> Coros </label>
-        </div>
-      </div>
+    <div id="hamburgerIcon">
+      <button type = "image" style = "border:none"> <img src="./Assets/Icons/menu.png"> </button>
     </div>
     <form class="inputForm">
       <input type="text" placeholder="Enter devices" />
@@ -51,10 +30,10 @@
       </a>
       <img src="Assets/Icons/shopping-cart_icon.png" alt="" />
     </div>
+    <script src="index.js"></script>
   </div>
-  <script src="index.js"></script>
-  <div style = "width: 15%; height: 0px;">
-    <div class="sideNavigationBar">
+  <div class="contentContainer">
+    <div id="sideNavBar">
       <p>Device</p>
       <?php
       include_once('device.php');
@@ -108,31 +87,12 @@
         </input> <br>
       </div>
     </div>
-  </div>
-  <div style = "width: 80%; margin-left: 250px;">
-  <div class="screenContainer">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum earum unde ad voluptatibus minus fugiat voluptatem provident sequi vero corporis? Ratione animi deserunt explicabo neque dolorem delectus ducimus obcaecati tempore.</p>
-  </div>
+    <div class="productDisplayArea">
+      <?php
+      include_once("product.php");
+      ?>
+    </div>
   </div>
 </body>
+
 </html>
