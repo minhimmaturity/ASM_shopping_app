@@ -1,5 +1,5 @@
 <?php
-include_once ('dbasm.php');
+include_once('dbasm.php');
 $sql = "select * from category";
 $device = query($sql);
 ?>
@@ -8,7 +8,7 @@ $device = query($sql);
     <?php
     for ($i = 0; $i < count($device); $i++) {
     ?>
-        <input type="checkbox" class="dropdownItem"> <?=$device[$i][1]?> </input> <br>
+        <input type="checkbox" class="dropdownItem" ?catid=<?=$device[$i][0]?>> <?= $device[$i][1] ?> </input> <br> 
     <?php
     }
     ?>

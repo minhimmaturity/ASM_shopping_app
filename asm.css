@@ -17,20 +17,11 @@
   width: 100%;
 }
 
-#hamburgerIcon {
-  width: 30px;
-  height: 30px;
+.menuIcon {
+  width: 20px;
+  height: 20px;
   margin-left: 20px;
-}
-
-#hamburgerIcon button {
-  width: 30px;
-  height: 25px;
-}
-
-#hamburgerIcon img {
-  width: 100%;
-  height: 100%;
+  cursor: pointer;
 }
 
 .inputForm {
@@ -40,6 +31,7 @@
   justify-content: center;
   margin-left: 490px;
 }
+
 .inputForm input {
   border: none;
   outline: none;
@@ -67,19 +59,41 @@
   cursor: pointer;
 }
 
+/* .dropdownItem{
+  width: 20px;
+  padding: 0px;
+  border: 0px;
+  height: 15px;
+} */
+
 .contentContainer {
   width: 100%;
   display: flex;
   flex-direction: row;
 }
-#sideNavBar {
-  width: 15%;
+
+.hamButton {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  display: flex;
+  margin-left: 280px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.open {
+  transform: translateX(100%);
+}
+
+.sideNavBar {
+  width: 97%;
   border: 1px solid black;
   border-radius: 10px;
   background: rgb(202, 202, 202);
   padding-bottom: 1%;
   margin-bottom: 2%;
-  visibility: unset;
+  transition-duration: 0.4s;
 }
 
 .screenContainer {
@@ -87,10 +101,11 @@
   flex-wrap: wrap;
 }
 .productDisplayArea {
-  width: 85%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-left: 20px;
 }
 
 .moneyContainer input {
@@ -137,12 +152,14 @@
   background: rgb(239, 239, 253);
   height: 40px;
   display: flex;
+  font-size: 12px;
 }
 .productPrice {
   font-family: "Times New Roman", Times, serif;
   font-size: 20px;
   color: red;
-  margin-bottom: 10px;
+  margin-top: 4%;
+  margin-bottom: 4%;
 }
 .productIMG {
   width: 100%;
@@ -150,12 +167,19 @@
   align-items: center;
   justify-content: center;
 }
-.productIMG img{
+.productIMG img {
   height: 200px;
 }
 
 .starRating {
   margin-top: 5px;
+  margin-bottom: 3%;
+}
+
+.sideNavBar button {
+  margin-left: 60px;
+  margin-top: 4%;
+  margin-bottom: 4%;
 }
 /* login and register */
 .login-form {
@@ -226,7 +250,6 @@ div > button {
   height: 30px;
   background: #fff8e7;
 }
-
 
 /* admin */
 .adminScreen {

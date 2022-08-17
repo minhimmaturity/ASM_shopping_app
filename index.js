@@ -10,4 +10,4 @@ const toggleElemet = (buttonID, elementID) => {
     })
 }
 
-toggleElemet("hamButton", "sideNavBar");
+toggleElemet("menuIcon", "sideNavBar");

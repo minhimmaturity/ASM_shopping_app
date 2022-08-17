@@ -1,5 +1,5 @@
 <?php
-include_once ('dbasm.php');
+include_once('dbasm.php');
 $sql = "select * from brand";
 $brand = query($sql);
 ?>
@@ -8,7 +8,7 @@ $brand = query($sql);
     <?php
     for ($i = 0; $i < count($brand); $i++) {
     ?>
-        <input type="checkbox" class="dropdownItem"> <?=$brand[$i][1]?> </input> <br>
+        <input type="checkbox" class="dropdownItem" ?brandid=<?=$brand[$i][0]?>> <?= $brand[$i][1] ?> </input> <br> 
     <?php
     }
     ?>
