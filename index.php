@@ -33,84 +33,93 @@
     </div>
   </div>
   <div class="contentContainer">
-    <div style="width: 15%">
-      <!-- <img src = "./Assets/Icons/menu.png" class = "hamButton" id = "hamButton"> -->
-      <div class="sideNavBar" id="sideNavBar">
-        <p>Device</p>
-        <?php
-        include_once('device.php');
-        ?>
-        <p> Brand List </p>
-        <?php
-        include_once('brand.php');
-        ?>
-        <div class="moneyContainer">
-          <p> Limit Price</p>
-          <input type="text" placeholder="Min"> -
-          <input type="text" placeholder="Max"></input></input>
-        </div>
-        <div class="starRating">
-          <p>Star rating</p>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-          <input type="checkbox" class="oneStar">
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star "></span>
-          <span class="fa fa-star "></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-          </input> <br>
-          <input type="checkbox" class="twoStar">
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star "></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-          </input> <br>
-          <input type="checkbox" class="threeStar">
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-          </input> <br>
-          <input type="checkbox" class="fourStar">
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star"></span>
-          </input> <br>
-          <input type="checkbox" class="fiveStar">
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          </input> <br>
-        </div>
-        <button type="submit" class="btn btn-primary">Search</button>
+    <div class="sideNavBar" id="sideNavBar">
+      <img src="./Assets/Icons/menu.png" class="hamButton" id="hamButton">
+      <p>Device</p>
+      <?php
+      include_once('device.php');
+      ?>
+      <p> Brand List </p>
+      <?php
+      include_once('brand.php');
+      ?>
+      <div class="moneyContainer">
+        <p> Limit Price</p>
+        <input type="text" placeholder="Min"> -
+        <input type="text" placeholder="Max"></input></input>
       </div>
+      <div class="starRating">
+        <p>Star rating</p>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <input type="checkbox" class="oneStar">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star "></span>
+        <span class="fa fa-star "></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        </input> <br>
+        <input type="checkbox" class="twoStar">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star "></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        </input> <br>
+        <input type="checkbox" class="threeStar">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        </input> <br>
+        <input type="checkbox" class="fourStar">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        </input> <br>
+        <input type="checkbox" class="fiveStar">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        </input> <br>
+      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
     </div>
-    <div class="productDisplayArea">
+    <div class="productDisplayArea" id="productDisplayArea">
       <?php
       include_once("product.php");
       ?>
     </div>
   </div>
-  <!-- <script>
+  <script>
+    // const productContainer = document.getElementById("productDisplayArea");
     const hamButton = document.getElementById('hamButton');
     const sideNavBar = document.getElementById('sideNavBar');
     let opened = false;
-    sideNavBar.addEventListener("click", () => {
-      if(!opened) {
-        hamButton.classList.add("open")
+    hamButton.addEventListener("click", () => {
+      // const test = document.getElementsByClassName("productContainer");
+      if (!opened) {
+        sideNavBar.classList.add("open");
+        hamButton.src = "./Assets/Icons/close.png";
         opened = true;
+        //   for (let i = 0; i < test.length; i++) {
+        //   if (test[key.innerHTML.includes('iPhone')]) {
+        //   if(true) {
+        //   productContainer.removeChild(test[i]);
+        //     }
+        //   }
+        // }
       } else {
-        left.classList.remove("open");
+        sideNavBar.classList.remove("open");
+        hamButton.src = "./Assets/Icons/menu.png";
         opened = false;
       }
     })
-  </script> -->
+  </script>
 </body>
 
 </html>

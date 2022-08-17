@@ -8,7 +8,9 @@ $device = query($sql);
     <?php
     for ($i = 0; $i < count($device); $i++) {
     ?>
-        <input type="checkbox" class="dropdownItem" ?catid=<?=$device[$i][0]?>> <?= $device[$i][1] ?> </input> <br> 
+        <a href = "index.php?catid=<?= $device[$i][0] ?>"> 
+            <div class="dropdownItem" > <?= $device[$i][1] ?> </div> <br>
+        </a>
     <?php
     }
     ?>

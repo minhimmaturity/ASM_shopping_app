@@ -1,13 +1,12 @@
 <?php
+$conditions = "1 = 1";
+$sql = "select * from product where $conditions";
 if(isset($_GET['brandid'])) {
     $sql = "Select * From `product` WHERE `brandid` = '".$_GET['brandid']. "' ";
-} else if (isset($_GET['keyword'])) {
-    $sql = "Select * From product WHERE productName like '%".$_GET['keyword']."%'";
-} else {
-include_once('dbasm.php');
-$sql = "select * from product";
-$product = query($sql);
+    $conditions = "brandid = ".$_GET['brandid'];
 }
+include_once('dbasm.php');
+$product = query($sql);
 ?>
 
 <?php

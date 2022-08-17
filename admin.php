@@ -31,9 +31,60 @@
   </div>
   <div class="adminScreen">
     <div class="sideNavBarAdmin">
-      <button class="abilityButton"> Insert </button> <br>
-      <button class="abilityButton"> Update </button> <br>
-      <button class="abilityButton"> Delete </button> <br>
+      <?php
+      include_once('dbasm.php');
+      $sql = "select * from category";
+      $device = query($sql);
+      ?>
+      <div class="devicesContainer">
+        <?php
+        for ($i = 0; $i < count($device); $i++) {
+        ?>
+          <a href="admin.php?catid=<?= $device[$i][0] ?>">
+            <div class="dropdownItem"> <?= $device[$i][1] ?> </div> <br>
+          </a>
+        <?php
+        }
+        ?>
+      </div>
+    </div>
+    <div class="actionScreen">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="width: 150px">IMG</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <?php
+        $sql = "select * from product";
+        $product = query($sql);
+        ?>
+        <?php
+        for ($i = 0; $i < count($product); $i++) {
+        ?>
+          <thead>
+            <tr>
+              <th style="width: 150px"> <img class="imgSize" src="<?= $product[$i][2] ?>"> </th>
+              <th > <?= $product[$i][1] ?> </th>
+              <th > <?= $product[$i][3] ?> </th>
+              <th > <?= $product[$i][4] ?> </th>
+              <th>
+                <a href="admin.php?updateid=<?= $rows[$i][0] ?>">Edit</a>
+                <a href="admin.php?deleteid=<?= $rows[$i][0] ?>">Delete</a>
+              </th>
+            </tr>
+          </thead>
+        <?php
+        }
+        ?>
+      </table>
+    </div>
+    <div class="addScreen">
+
     </div>
   </div>
 </body>
