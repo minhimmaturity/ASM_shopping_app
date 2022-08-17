@@ -31,12 +31,12 @@ $accounts = query($sql);
       <p style="margin-right: 85%">Login Area</p>
     </div>
   </body>
-  <form class="login-form" class = "was-validate" method="post" action="">
+  <form class="login-form" class="was-validate" method="post" action="">
     <!-- <div class = "shopImgContainer"> 
         <img src = "Assets/Images/shop.png" class = "shopIMG">
       </div> -->
     <div class="loginInputContainer">
-    <input type="username" class="form-control" placeholder="Enter Username" name="username" required>
+      <input type="username" class="form-control" placeholder="Enter Username" name="username" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
       <input type="password" class="form-control" placeholder="Enter Password" name="password" required>

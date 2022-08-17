@@ -292,7 +292,7 @@ div > button {
   border-radius: 15px;
 }
 
-.addScreen {
+.abilityScreen {
   border: 1px solid black;
   width: 20%;
   border-radius: 15px;
@@ -302,3 +302,28 @@ div > button {
   height: 150px;
   width: 150px;
 }
+
+.addHeader {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.insertForm {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 50px;
+}
+
+#submitButton {
+  margin-left: 100px;
+  margin-top: 2%;
+}
+
+.brandForm {
+  margin-left: 90px;
+}
+
+

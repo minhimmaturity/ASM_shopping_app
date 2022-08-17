@@ -33,15 +33,16 @@
     <div class="sideNavBarAdmin">
       <?php
       include_once('dbasm.php');
-      $sql = "select * from category";
-      $device = query($sql);
+      $sql = "select * from brand";
+      $brand = query($sql);
       ?>
       <div class="devicesContainer">
+        <a href="admin.php">Home</a>
         <?php
-        for ($i = 0; $i < count($device); $i++) {
+        for ($i = 0; $i < count($brand); $i++) {
         ?>
-          <a href="admin.php?catid=<?= $device[$i][0] ?>">
-            <div class="dropdownItem"> <?= $device[$i][1] ?> </div> <br>
+          <a href="admin.php?brandid=<?= $brand[$i][0] ?>">
+            <div class="dropdownItem"> <?= $brand[$i][1] ?> </div> <br>
           </a>
         <?php
         }
@@ -60,18 +61,21 @@
           </tr>
         </thead>
         <?php
-        $sql = "select * from product";
+        $conditions = "1 = 1";
+        $sql = "select * from product where $conditions";
+        if (isset($_GET['brandid'])) {
+          $sql = "Select * From `product` WHERE `brandid` = '" . $_GET['brandid'] . "' ";
+          $conditions = "brandid = " . $_GET['brandid'];
+        }
         $product = query($sql);
-        ?>
-        <?php
         for ($i = 0; $i < count($product); $i++) {
         ?>
           <thead>
             <tr>
               <th style="width: 150px"> <img class="imgSize" src="<?= $product[$i][2] ?>"> </th>
-              <th > <?= $product[$i][1] ?> </th>
-              <th > <?= $product[$i][3] ?> </th>
-              <th > <?= $product[$i][4] ?> </th>
+              <th> <?= $product[$i][1] ?> </th>
+              <th> <?= $product[$i][3] ?> </th>
+              <th> <?= $product[$i][4] ?> </th>
               <th>
                 <a href="admin.php?updateid=<?= $rows[$i][0] ?>">Edit</a>
                 <a href="admin.php?deleteid=<?= $rows[$i][0] ?>">Delete</a>
@@ -83,10 +87,66 @@
         ?>
       </table>
     </div>
-    <div class="addScreen">
-
+    <div class="abilityScreen">
+      <form action="" method="POST" style="width: 100%;">
+        <div class="addHeader">
+          Add New Device
+        </div>
+        <input type="text" class="insertForm" name="id" value="" placeholder="Enter device ID">
+        <input type="text" class="insertForm" name="deviceName" value="" placeholder="Enter device name">
+        <input type="file" class="insertForm" name="deviceIMG" value="" placeholder="choose file">
+        <input type="text" class="insertForm" name="devicePrice" value="" placeholder="Enter device price">
+        <input type="text" class="insertForm" name="description" value="" placeholder="Enter device description">
+        <div>
+          <select class="brandForm" name="categogy">
+            <option>category</option>
+            <?php
+            $sql = "select * from category";
+            $cat = query($sql);
+            for ($i = 0; $i < count($cat); $i++) {
+            ?>
+              <option value="<?= $cat[$i][0] ?>"><?= $cat[$i][1] ?></option>
+            <?php
+            }
+            ?>
+          </select>
+        </div>
+        <div>
+          <select class="brandForm" name="brand">
+            <option>Brand</option>
+            <?php
+            $sql = "select * from brand";
+            $brand = query($sql);
+            for ($i = 0; $i < count($brand); $i++) {
+            ?>
+              <option value="<?= $brand[$i][0] ?>"><?= $brand[$i][1] ?></option>
+            <?php
+            }
+            ?>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submitButton" name="submit">Submit</button>
+      </form>
     </div>
   </div>
+  <?php
+  if (isset($_POST['submit'])) {
+    $id = $_POST['id'];
+    $deviceName = $_POST['deviceName'];
+    if ($_FILES) {
+      $image = $_FILES['deviceIMG']['name'];
+      $path = "images/" . $image;
+      move_uploaded_file($_FILES['deviceIMG']['tmp_name'], $path);
+    }
+    $devicePrice = $_POST['devicePrice'];
+    $description = $_POST['description'];
+    $category = $_POST['category'];
+    $brand = $_POST['brand'];
+    $sql = "INSERT INTO `product`(`productID`, `productName`, `productIMG`, `productPrice`, `description`, `catid`, `brandid`) 
+    VALUES ('$id','$deviceName','$path','$devicePrice','$description','$category','$brand')";
+    query($sql);
+  }
+  ?>
 </body>
 
 </html>
