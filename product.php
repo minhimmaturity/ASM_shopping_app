@@ -9,6 +9,11 @@ if (isset($_GET['catid'])) {
     $sql = "Select * From `product` WHERE `catid` = '" . $_GET['catid'] . "' ";
     $conditions = "catid = " . $_GET['catid'];
 }
+if (isset($_GET['search'])) {
+    $search = $_GET['search'];
+    $sql = "Select * From `product` WHERE `productName` like '%$search%'";
+    query($sql);
+}
 include_once('dbasm.php');
 $product = query($sql);
 ?>

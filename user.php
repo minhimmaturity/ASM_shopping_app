@@ -115,17 +115,6 @@
       }
     })
   </script>
-  <?php
-  include_once('dbasm.php');
-  if (isset($_GET['submit'])) {
-    $search = $_GET['search'];
-    $sql = "SELECT * FROM `product` WHERE `productName` LIKE '%$search%'";
-    query($sql);
-  } else {
-    $sql = "select * from product ";
-    query($sql);
-  }
-  ?>
 </body>
 
 </html>
