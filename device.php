@@ -8,8 +8,8 @@ $device = query($sql);
     <?php
     for ($i = 0; $i < count($device); $i++) {
     ?>
-        <a href = "index.php?catid=<?= $device[$i][0] ?>"> 
-            <div class="dropdownItem" > <?= $device[$i][1] ?> </div> <br>
+        <a href="user.php?catid=<?= $device[$i][0] ?>">
+            <div class="dropdownItem"> <?= $device[$i][1] ?> </div> <br>
         </a>
     <?php
     }

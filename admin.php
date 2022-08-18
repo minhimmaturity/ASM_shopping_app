@@ -20,7 +20,9 @@
 <body style="padding: 0; margin: 0">
   <div class="navBar">
     <div class="logoContainer">
-      <img src="Assets/Images/electric-shop.png" alt="" />
+      <a href="user.php">
+        <img src="Assets/Images/electric-shop.png" alt="" />
+      </a>
     </div>
     <p style="margin-right: 45%">Admin Area</p>
     <div class="customerAreaContainer">
@@ -77,8 +79,8 @@
               <th> <?= $product[$i][3] ?> </th>
               <th> <?= $product[$i][4] ?> </th>
               <th>
-                <a href="admin.php?updateid=<?= $rows[$i][0] ?>">Edit</a>
-                <a href="admin.php?deleteid=<?= $rows[$i][0] ?>">Delete</a>
+                <a href="admin.php?updateid=<?= $product[$i][0] ?>">Edit</a>
+                <a href="admin.php?deleteid=<?= $product[$i][0] ?>">Delete</a>
               </th>
             </tr>
           </thead>
@@ -88,17 +90,17 @@
       </table>
     </div>
     <div class="abilityScreen">
-      <form action="" method="POST" style="width: 100%;">
+      <form action="" method="POST" style="width: 100%;" enctype="multipart/form-data">
         <div class="addHeader">
           Add New Device
         </div>
         <input type="text" class="insertForm" name="id" value="" placeholder="Enter device ID">
-        <input type="text" class="insertForm" name="deviceName" value="" placeholder="Enter device name">
-        <input type="file" class="insertForm" name="deviceIMG" value="" placeholder="choose file">
-        <input type="text" class="insertForm" name="devicePrice" value="" placeholder="Enter device price">
+        <input type="text" class="insertForm" name="name" value="" placeholder="Enter device name">
+        <input type="file" class="insertForm" name="image" value="">
+        <input type="text" class="insertForm" name="price" value="" placeholder="Enter device price">
         <input type="text" class="insertForm" name="description" value="" placeholder="Enter device description">
         <div>
-          <select class="brandForm" name="categogy">
+          <select class="brandForm" name="category">
             <option>category</option>
             <?php
             $sql = "select * from category";
@@ -113,7 +115,7 @@
         </div>
         <div>
           <select class="brandForm" name="brand">
-            <option>Brand</option>
+            <option>brand</option>
             <?php
             $sql = "select * from brand";
             $brand = query($sql);
@@ -130,20 +132,30 @@
     </div>
   </div>
   <?php
-  if (isset($_POST['submit'])) {
+  if (
+    isset($_POST['submit'])
+  ) {
     $id = $_POST['id'];
-    $deviceName = $_POST['deviceName'];
+    $name = $_POST['name'];
+
     if ($_FILES) {
-      $image = $_FILES['deviceIMG']['name'];
-      $path = "images/" . $image;
-      move_uploaded_file($_FILES['deviceIMG']['tmp_name'], $path);
+      $image = $_FILES['image']['name'];
+      $path = "./upload/image/" . $image;
+      move_uploaded_file($_FILES['image']['tmp_name'], $path);
     }
-    $devicePrice = $_POST['devicePrice'];
+
+    $price = $_POST['price'];
     $description = $_POST['description'];
     $category = $_POST['category'];
     $brand = $_POST['brand'];
     $sql = "INSERT INTO `product`(`productID`, `productName`, `productIMG`, `productPrice`, `description`, `catid`, `brandid`) 
-    VALUES ('$id','$deviceName','$path','$devicePrice','$description','$category','$brand')";
+    VALUES ('$id','$name','$path','$price','$description','$category','$brand')" or die('cannot insert');
+    query($sql);
+  }
+  if (isset($_GET['deleteid'])) {
+    $id = $_GET['deleteid'];
+    echo "<script> '" . $id . "' </script>";
+    $sql = "delete from product where productId = '" . $id . "'";
     query($sql);
   }
   ?>

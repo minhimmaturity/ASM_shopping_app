@@ -8,8 +8,8 @@ $brand = query($sql);
     <?php
     for ($i = 0; $i < count($brand); $i++) {
     ?>
-        <a href = "index.php?brandid=<?= $brand[$i][0] ?>">
-            <input type="checkbox" class="dropdownItem" > <?= $brand[$i][1] ?> </input> <br>
+        <a href="user.php?brandid=<?= $brand[$i][0] ?>">
+            <input type="checkbox" class="dropdownItem"> <?= $brand[$i][1] ?> </input> <br>
         </a>
     <?php
     }

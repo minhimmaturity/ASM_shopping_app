@@ -10,9 +10,17 @@
   /* border: 2px solid black */
   height: 10vh;
 }
+
+.navBar p {
+  font-size: 12px;
+  width: 67px;
+  margin-bottom: 0%;
+}
+
 .logoContainer {
   width: 6%;
 }
+
 .logoContainer img {
   width: 100%;
 }
@@ -29,7 +37,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 490px;
+  margin-left: 430px;
 }
 
 .inputForm input {
@@ -39,13 +47,17 @@
   border-radius: 10px;
   width: 87%;
   margin-right: 3%;
+  font-size: 16px;
+}
+.inputForm button {
+  width: 10%;
+  border: none;
+  background-color: #fff8e7;
 }
 .inputForm img {
-  width: 8%;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
-}
-.inputForm > input {
-  font-size: 16px;
 }
 .customerAreaContainer {
   width: 40%;
@@ -59,12 +71,11 @@
   cursor: pointer;
 }
 
-/* .dropdownItem{
-  width: 20px;
-  padding: 0px;
-  border: 0px;
-  height: 15px;
-} */
+.customerAreaContainer p {
+  display: flex;
+  justify-content: right;
+  font-size: 12px;
+}
 
 .contentContainer {
   width: 100%;
@@ -272,7 +283,6 @@ div > button {
   border: 0.1px solid black;
   border-radius: 10px;
   height: 750px;
-  
 }
 
 .sideNavBarAdmin button {
@@ -325,5 +335,3 @@ div > button {
 .brandForm {
   margin-left: 90px;
 }
-
-

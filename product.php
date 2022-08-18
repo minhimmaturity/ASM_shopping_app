@@ -1,9 +1,13 @@
 <?php
 $conditions = "1 = 1";
 $sql = "select * from product where $conditions";
-if(isset($_GET['brandid'])) {
-    $sql = "Select * From `product` WHERE `brandid` = '".$_GET['brandid']. "' ";
-    $conditions = "brandid = ".$_GET['brandid'];
+if (isset($_GET['brandid'])) {
+    $sql = "Select * From `product` WHERE `brandid` = '" . $_GET['brandid'] . "' ";
+    $conditions = "brandid = " . $_GET['brandid'];
+}
+if (isset($_GET['catid'])) {
+    $sql = "Select * From `product` WHERE `catid` = '" . $_GET['catid'] . "' ";
+    $conditions = "catid = " . $_GET['catid'];
 }
 include_once('dbasm.php');
 $product = query($sql);

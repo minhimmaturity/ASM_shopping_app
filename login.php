@@ -28,13 +28,10 @@ $accounts = query($sql);
           <img src="/ASM_shopping_app/Assets/Images/electric-shop.png" alt=" " />
         </a>
       </div>
-      <p style="margin-right: 85%">Login Area</p>
+      <p style="margin-right: 25%">Login Area</p>
     </div>
   </body>
   <form class="login-form" class="was-validate" method="post" action="">
-    <!-- <div class = "shopImgContainer"> 
-        <img src = "Assets/Images/shop.png" class = "shopIMG">
-      </div> -->
     <div class="loginInputContainer">
       <input type="username" class="form-control" placeholder="Enter Username" name="username" required>
       <div class="valid-feedback">Valid.</div>
@@ -56,28 +53,16 @@ $accounts = query($sql);
   if (isset($_POST['username']) && $_POST['password']) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    if ($username == 'admin' && $password == 'admin') {
-      header("location:admin.php");
-    } else if (true) {
-      header("location:index.php");
-    } else {
-      header("location:login.php");
+    for ($i = 0; $i < count($accounts); $i++) {
+      if ($accounts[$i][1] == $username && $accounts[$i][2] == $password && $accounts[$i][1] != 'admin' && $accounts[$i][2] != 'admin') {
+        header('location:user.php');
+      } else if ($accounts[$i][1] == $username && $accounts[$i][2] == $password && $username == 'admin' && $password == 'admin') {
+        header('location:admin.php');
+      }
     }
   }
   ?>
   <?php
-  function isValid($accounts, $username, $password)
-  {
-    for ($i = 0; $i < count($accounts); $i++) {
-      if (
-        $accounts[$i][1] == $username && $accounts[$i][2] == $password
-        && $accounts[$i][1] != 'admin' && $accounts[$i][2] != 'admin'
-      ) {
-        return true;
-      }
-      return false;
-    }
-  }
   ?>
 </body>
 

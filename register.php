@@ -63,16 +63,18 @@
     $_POST['userName'] != "" && $_POST['Email'] != "" && $_POST['PhoneNumber'] != "" && $_POST['birthday']  != ""
     && $_POST['UserPassword'] != ""  && $_POST['cPassword'] != ""
   ) {
+    echo "<script> 'Register Successfully'</script>";
     $userName = $_POST['userName'];
     $Email = $_POST['Email'];
     $PhoneNumber = $_POST['PhoneNumber'];
     $birthday = $_POST['birthday'];
     $UserPassword = $_POST['UserPassword'];
     $cPassword = $_POST['cPassword'];
-    $sql = "INSERT INTO `account`( `username`, `password`, `email`, `birthdate`, `phone_number`) 
+    $sql = "INSERT INTO `account`( `username`, `password`, `email`, `birthdate`, `phone_number`)
     VALUES ('$userName','$UserPassword','$Email','$birthday','$PhoneNumber')";
     query($sql);
   }
   ?>
 </body>
+
 </html>
