@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <!-- Latest compiled and minified CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <!-- Latest compiled JavaScript -->
@@ -38,6 +39,37 @@
     </div>
   </div>
   <div class="contentContainer">
+    <style>
+      .carousel-item {
+        height: 430px;
+        border: 1px solid black;
+        overflow: hidden;
+      }
+    </style>
+    <div id="#shopCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#shopCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#shopCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#shopCarousel" data-bs-slide-to="2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./Assets/Images/carousel1.jpg" alt="Los Angeles" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+          <img src="./Assets/Images/carousel1.jpg" alt="Chicago" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+          <img src="./Assets/Images/carousel1.jpg" alt="New York" class="d-block w-100">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#shopCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#shopCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
     <div class="sideNavBar" id="sideNavBar">
       <img src="./Assets/Icons/menu.png" class="hamButton" id="hamButton">
       <p>Device</p>

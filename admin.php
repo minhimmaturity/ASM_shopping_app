@@ -90,45 +90,119 @@
       </table>
     </div>
     <div class="abilityScreen">
-      <form action="" method="POST" style="width: 100%;" enctype="multipart/form-data">
-        <div class="addHeader">
-          Add New Device
-        </div>
-        <input type="text" class="insertForm" name="id" value="" placeholder="Enter device ID">
-        <input type="text" class="insertForm" name="name" value="" placeholder="Enter device name">
-        <input type="file" class="insertForm" name="image" value="">
-        <input type="text" class="insertForm" name="price" value="" placeholder="Enter device price">
-        <input type="text" class="insertForm" name="description" value="" placeholder="Enter device description">
-        <div>
-          <select class="brandForm" name="category">
-            <option>category</option>
-            <?php
-            $sql = "select * from category";
-            $cat = query($sql);
-            for ($i = 0; $i < count($cat); $i++) {
-            ?>
-              <option value="<?= $cat[$i][0] ?>"><?= $cat[$i][1] ?></option>
-            <?php
-            }
-            ?>
-          </select>
-        </div>
-        <div>
-          <select class="brandForm" name="brand">
-            <option>brand</option>
-            <?php
-            $sql = "select * from brand";
-            $brand = query($sql);
-            for ($i = 0; $i < count($brand); $i++) {
-            ?>
-              <option value="<?= $brand[$i][0] ?>"><?= $brand[$i][1] ?></option>
-            <?php
-            }
-            ?>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary" id="submitButton" name="submit">Submit</button>
-      </form>
+      <?php
+      if (isset($_GET['updateid'])) {
+        $id = $_GET['updateid'];
+        $sql = "select * from product where productID = '" . $id . "'";
+        $update = query($sql);
+      ?>
+        <form action="" method="POST" style="width: 100%;" enctype="multipart/form-data">
+          <div class="addHeader">
+            Update Device
+          </div>
+          <input type="text" class="insertForm" name="iddisplay" value="<?= $update[0][0] ?>" disabled>
+          <input type="hidden" id="id" value="<?= $update[0][0] ?>" name="id">
+
+          <input type="text" class="insertForm" name="name" value="<?= $update[0][1] ?>">
+
+          <input type="file" class="insertForm" name="image" value="">
+
+
+          <input type="text" class="insertForm" name="price" value="<?= $update[0][3] ?>">
+
+          <input type="text" class="insertForm" name="description" value="<?= $update[0][4] ?>">
+
+          <div>
+            <select class="brandForm" name="category">
+              <option>category</option>
+              <?php
+              $sql = "select * from category";
+              $cat = query($sql);
+              for ($i = 0; $i < count($cat); $i++) {
+                if ($update[0][5] == $cat[$i][0]) {
+              ?>
+                  <option value="<?= $cat[$i][0] ?>" selected><?= $cat[$i][1] ?></option>
+                <?php
+                } else {
+                ?>
+                  <option value="<?= $cat[$i][0] ?>"><?= $cat[$i][1] ?></option>
+                <?php
+                }
+                ?>
+              <?php
+              }
+              ?>
+            </select>
+          </div>
+          <div>
+            <select class="brandForm" name="brand">
+              <option>brand</option>
+              <?php
+              $sql = "select * from brand";
+              $brand = query($sql);
+              for ($i = 0; $i < count($brand); $i++) {
+                if ($update[0][6] == $brand[$i][0]) {
+              ?>
+                  <option value="<?= $brnad[$i][0] ?>" selected><?= $brand[$i][1] ?></option>
+                <?php
+                } else {
+                ?>
+                  <option value="<?= $brand[$i][0] ?>"><?= $brand[$i][1] ?></option>
+                <?php
+                }
+                ?>
+              <?php
+              }
+              ?>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitButton" name="update">Update</button>
+        </form>
+      <?php
+      } else {
+      ?>
+        <form action="" method="POST" style="width: 100%;" enctype="multipart/form-data">
+          <div class="addHeader">
+            Add New Device
+          </div>
+          <input type="text" class="insertForm" name="id" value="" placeholder="Enter device ID">
+          <input type="text" class="insertForm" name="name" value="" placeholder="Enter device name">
+          <input type="file" class="insertForm" name="image" value="">
+          <input type="text" class="insertForm" name="price" value="" placeholder="Enter device price">
+          <input type="text" class="insertForm" name="description" value="" placeholder="Enter device description">
+          <div>
+            <select class="brandForm" name="category">
+              <option>category</option>
+              <?php
+              $sql = "select * from category";
+              $cat = query($sql);
+              for ($i = 0; $i < count($cat); $i++) {
+              ?>
+                <option value="<?= $cat[$i][0] ?>"><?= $cat[$i][1] ?></option>
+              <?php
+              }
+              ?>
+            </select>
+          </div>
+          <div>
+            <select class="brandForm" name="brand">
+              <option>brand</option>
+              <?php
+              $sql = "select * from brand";
+              $brand = query($sql);
+              for ($i = 0; $i < count($brand); $i++) {
+              ?>
+                <option value="<?= $brand[$i][0] ?>"><?= $brand[$i][1] ?></option>
+              <?php
+              }
+              ?>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitButton" name="submit">Submit</button>
+        </form>
+      <?php
+      }
+      ?>
     </div>
   </div>
   <?php
@@ -156,6 +230,26 @@
     $id = $_GET['deleteid'];
     echo "<script> '" . $id . "' </script>";
     $sql = "delete from product where productId = '" . $id . "'";
+    query($sql);
+  }
+
+  if (isset($_POST['update'])) {
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+
+    if ($_FILES) {
+      if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '') {
+        $image = $_FILES['image']['name'];
+        $path = "images/" . $image;
+        move_uploaded_file($_FILES['image']['tmp_name'], $path);
+      }
+    }
+    $price = $_POST['price'];
+    $description = $_POST['description'];
+    $category = $_POST['category'];
+    $brand = $_POST['brand'];
+    $sql = "UPDATE `product` SET `productName`='$name',`productIMG`='$path'
+    ,`productPrice`='$price',`description`='$description',`catid`='$category',`brandid`='$brand' WHERE `productID` = '" . $id . "' ";
     query($sql);
   }
   ?>
