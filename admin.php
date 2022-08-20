@@ -240,7 +240,7 @@
     if ($_FILES) {
       if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '') {
         $image = $_FILES['image']['name'];
-        $path = "images/" . $image;
+        $path = "./upload/image/" . $image;
         move_uploaded_file($_FILES['image']['tmp_name'], $path);
       }
     }
