@@ -20,7 +20,7 @@ function query ($sql = "") {
         echo "SQL exection failed <br>";
         die ($conn -> error);
     }
-    $rows = mysqli_fetch_all($result);
+    $rows = $result -> fetch_all();
     $conn->close();
     return $rows;
 }
