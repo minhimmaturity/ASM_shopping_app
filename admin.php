@@ -59,6 +59,7 @@
             <th>Product Name</th>
             <th>Price</th>
             <th>Description</th>
+            <th>Specific Description</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -78,6 +79,7 @@
               <th> <?= $product[$i][1] ?> </th>
               <th> <?= $product[$i][3] ?> </th>
               <th> <?= $product[$i][4] ?> </th>
+              <th> <?= $product[$i][7] ?> </th>
               <th>
                 <a href="admin.php?updateid=<?= $product[$i][0] ?>">Edit</a>
                 <a href="admin.php?deleteid=<?= $product[$i][0] ?>">Delete</a>
@@ -105,6 +107,7 @@
 
           <input type="text" class="insertForm" name="name" value="<?= $update[0][1] ?>">
 
+          <input type="text" class="insertForm" name="imageold" id="imageold" value="<?= $update[0][2] ?>">
           <input type="file" class="insertForm" name="image" value="">
 
 
@@ -143,7 +146,7 @@
               for ($i = 0; $i < count($brand); $i++) {
                 if ($update[0][6] == $brand[$i][0]) {
               ?>
-                  <option value="<?= $brnad[$i][0] ?>" selected><?= $brand[$i][1] ?></option>
+                  <option value="<?= $brand[$i][0] ?>" selected><?= $brand[$i][1] ?></option>
                 <?php
                 } else {
                 ?>
@@ -156,6 +159,7 @@
               ?>
             </select>
           </div>
+          <input type="text" class="insertForm" name="specificDescription" value="<?= $update[0][7] ?>">
           <button type="submit" class="btn btn-primary" id="submitButton" name="update">Update</button>
         </form>
       <?php
@@ -198,6 +202,7 @@
               ?>
             </select>
           </div>
+          <input type="text" class="insertForm" name="specificDescription" value = "" placeholder = "Please enter specific description">
           <button type="submit" class="btn btn-primary" id="submitButton" name="submit">Submit</button>
         </form>
       <?php
@@ -222,8 +227,9 @@
     $description = $_POST['description'];
     $category = $_POST['category'];
     $brand = $_POST['brand'];
-    $sql = "INSERT INTO `product`(`productID`, `productName`, `productIMG`, `productPrice`, `description`, `catid`, `brandid`) 
-    VALUES ('$id','$name','$path','$price','$description','$category','$brand')" or die('cannot insert');
+    $specificDescription = $_POST['specificDescription'];
+    $sql = "INSERT INTO `product`(`productID`, `productName`, `productIMG`, `productPrice`, `description`, `catid`, `brandid`, 'specific description') 
+    VALUES ('$id','$name','$path','$price','$description','$category','$brand', '$specificDescription')" or die('cannot insert');
     query($sql);
   }
   if (isset($_GET['deleteid'])) {
@@ -236,6 +242,7 @@
   if (isset($_POST['update'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
+    $path = $_POST['imageold'];
 
     if ($_FILES) {
       if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '') {
@@ -248,11 +255,44 @@
     $description = $_POST['description'];
     $category = $_POST['category'];
     $brand = $_POST['brand'];
+    $specificDescription = $_POST['specificDescription'];
     $sql = "UPDATE `product` SET `productName`='$name',`productIMG`='$path'
-    ,`productPrice`='$price',`description`='$description',`catid`='$category',`brandid`='$brand' WHERE `productID` = '" . $id . "' ";
+    ,`productPrice`='$price',`description`='$description',`catid`='$category',`brandid`='$brand', `specific description`='$specificDescription' WHERE `productID` = '" . $id . "' ";
     query($sql);
   }
   ?>
 </body>
+<footer class="footer">
+  <div class="footerContainer">
+    <div class="row">
+      <div class="footer-col">
+        <h4 style="margin-left: 30px"> Company </h4>
+        <ul>
+          <li> <a href="#">About Us</a> </li>
+          <li> <a href="#">Our Services</a> </li>
+          <li> <a href="#"> Privacy Policy</a> </li>
+          <li> <a href="#"> Affiliate program </a> </li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 style="margin-left: 30px"> Get help </h4>
+        <ul>
+          <li> <a href="#">FAQ</a> </li>
+          <li> <a href="#">Payment Options</a> </li>
+          <li> <a href="#">Returns</a> </li>
+          <li> <a href="#">Order Status</a> </li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4> Follow us </h4>
+        <div class="social-links">
+          <a href="https://www.facebook.com/minhtran0612/"> <i class="fab fa-facebook-f"> </i> </a>
+          <a href="#"> <i class="fab fa-instagram"> </i> </a>
+          <a href="#"> <i class="fab fa-youtube"> </i> </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </html>

@@ -42,4 +42,36 @@
     </div>
   </div>
 </body>
+<footer class="footer">
+  <div class="footerContainer">
+    <div class="row">
+      <div class="footer-col">
+        <h4 style = "margin-left: 30px"> Company </h4>
+        <ul>
+          <li> <a href="#">About Us</a> </li>
+          <li> <a href="#">Our Services</a> </li>
+          <li> <a href="#"> Privacy Policy</a> </li>
+          <li> <a href="#"> Affiliate program </a> </li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 style = "margin-left: 30px"> Get help </h4>
+        <ul>
+          <li> <a href="#">FAQ</a> </li>
+          <li> <a href="#">Payment Options</a> </li>
+          <li> <a href="#">Returns</a> </li>
+          <li> <a href="#">Order Status</a> </li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4> Follow us </h4>
+        <div class="social-links">
+          <a href="https://www.facebook.com/minhtran0612/"> <i class = "fab fa-facebook-f"> </i> </a>
+          <a href="#"> <i class = "fab fa-instagram"> </i> </a>
+          <a href="#"> <i class = "fab fa-youtube"> </i> </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 </html>

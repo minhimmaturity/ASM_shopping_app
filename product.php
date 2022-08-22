@@ -21,14 +21,21 @@ $product = query($sql);
 <?php
 for ($i = 0; $i < count($product); $i++) {
 ?>
-    <div class="productContainer">
-        <div class="productIMG">
-            <img src="<?= $product[$i][2] ?>">
-        </div>
-        <div class="productName"> <?= $product[$i][1] ?> </div>
-        <div class="productPrice"> <?= $product[$i][3] ?> </div>
-        <div class="description"> <?= $product[$i][4] ?> </div>
+    <a href="productdetail.php?productID=<?= $product[$i][0] ?>" style = "text-decoration: none">
+        <div class="productContainer">
+            <div class="productIMG">
+                <img src="<?= $product[$i][2] ?>">
+            </div>
+            <div class="productName"> <?= $product[$i][1] ?> </div>
+            <div class="productPrice"> <?= $product[$i][3] ?> </div>
+            <div class="description"> <?= $product[$i][4] ?> </div>
+    </a>
+    <a href = "#">
+    <button id="cartButton" type="button" class="btn btn-danger">Add to cart</button>
+    </a>
     </div>
+
+
 <?php
 }
 ?>
