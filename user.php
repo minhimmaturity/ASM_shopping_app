@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +14,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="asm.css" />
-  <link rel="stylesheet" type = "text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
   <title>
     ElectricShop (Phone, Laptop, PC and electric devices to everyone)
   </title>
@@ -36,7 +39,9 @@
       <a href="login.php">
         <img style="margin-left: 420px" 1 src="Assets/Icons/login_success.png" alt="" />
       </a>
-      <img src="Assets/Icons/shopping-cart_icon.png" alt="" />
+      <a href="cart.php" style="margin-right: 40px">
+        <img src="Assets/Icons/shopping-cart_icon.png" alt="" style="width: 15px; height: 15px" />
+      </a>
     </div>
   </div>
   <div class="contentContainer">
@@ -153,7 +158,7 @@
   <div class="footerContainer">
     <div class="row">
       <div class="footer-col">
-        <h4 style = "margin-left: 30px"> Company </h4>
+        <h4 style="margin-left: 30px"> Company </h4>
         <ul>
           <li> <a href="#">About Us</a> </li>
           <li> <a href="#">Our Services</a> </li>
@@ -162,7 +167,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4 style = "margin-left: 30px"> Get help </h4>
+        <h4 style="margin-left: 30px"> Get help </h4>
         <ul>
           <li> <a href="#">FAQ</a> </li>
           <li> <a href="#">Payment Options</a> </li>
@@ -173,13 +178,42 @@
       <div class="footer-col">
         <h4> Follow us </h4>
         <div class="social-links">
-          <a href="https://www.facebook.com/minhtran0612/"> <i class = "fab fa-facebook-f"> </i> </a>
-          <a href="#"> <i class = "fab fa-instagram"> </i> </a>
-          <a href="#"> <i class = "fab fa-youtube"> </i> </a>
+          <a href="https://www.facebook.com/minhtran0612/"> <i class="fab fa-facebook-f"> </i> </a>
+          <a href="#"> <i class="fab fa-instagram"> </i> </a>
+          <a href="#"> <i class="fab fa-youtube"> </i> </a>
         </div>
       </div>
     </div>
   </div>
 </footer>
+<?php
+include_once('dbasm.php');
+if (isset($_POST['addCart'])) {
+  if (isset($_SESSION['cart'])) {
+    $item_array_id = array_column($_SESSION['cart'], 'product_id');
+    if (in_array($_POST['product_id'], $item_array_id)) {
+      echo "<script>alert('Product is already added in the cart...!')</script>";
+      echo "<script>window.location='user.php'</script>";
+    } else {
+      $count = count($_SESSION['cart']);
+      $item_array = array(
+        'product_id' => $_POST['product_id'],
+        'product_name' => $_POST['product_name'],
+        'product_price' => $_POST['product_price']
+      );
+      $_SESSION['cart'][$count] = $item_array;
+      print_r($_SESSION['cart']);
+    }
+  } else {
+    $item_array = array(
+      'product_id' => $_POST['product_id'],
+      'product_name' => $_POST['product_name'],
+      'product_price' => $_POST['product_price']
+    );
+    $_SESSION['cart'][0] = $item_array;
+    print_r($_SESSION['cart']);
+  }
+}
+?>
 
 </html>
