@@ -215,5 +215,8 @@ if (isset($_POST['addCart'])) {
   }
 }
 ?>
+<?php
+// echo "<script> '" . $_SESSION['cart'] . "' </script>";
+?>
 
 </html>

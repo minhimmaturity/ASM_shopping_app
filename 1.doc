@@ -5,3 +5,32 @@
         <span class="fa fa-star checked"></span>
         <span class="fa fa-star"></span>
         </div>
+
+if (isset($_POST['addCart'])) {
+  if (isset($_SESSION['cart'])) {
+    $item_array_id = array_column($_SESSION['cart'], 'product_id');
+    if (in_array($_POST['product_id'], $item_array_id)) {
+      echo "<script>alert('Product is already added in the cart...!')</script>";
+      echo "<script>window.location='user.php'</script>";
+    } 
+    else {
+      $count = count($_SESSION['cart']);
+      $item_array = array(
+        'product_id' => $_POST['product_id'],
+        'product_name' => $_POST['product_name'],
+        'product_price' => $_POST['product_price']
+      );
+      $_SESSION['cart'][$count] = $item_array;
+      print_r($_SESSION['cart']);
+    }
+  }
+  else {
+    $item_array = array(
+      'product_id' => $_POST['product_id'],
+      'product_name' => $_POST['product_name'],
+      'product_price' => $_POST['product_price']
+    );
+    $_SESSION['cart'][0] = $item_array;
+    print_r($_SESSION['cart']);
+  }
+}

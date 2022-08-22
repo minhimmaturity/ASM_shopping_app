@@ -37,7 +37,42 @@ include_once("dbasm.php");
     </div>
     <div class="contentContainer">
         <div class="productDisplayArea" id="productDisplayArea">
-            
+            <table style="width: 100%">
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+                <?php
+                if (isset($_SESSION['cart'])) {
+                    $total = 0;
+                    foreach ($_SESSION['cart'] as $keys => $values) {
+                ?>
+                        <tr>
+                            <td> <?php echo $values["product_name"] ?> </td>
+                            <td> <?php echo $values["product_price"] ?> $ </td>
+                            <td> <a href="user.php?action=delete&id=<?php echo $values['product_id']; ?>">Delete</> </a> </td>
+                        </tr>
+                    <?php
+                        $total = $total + (count($values['product_price']) * $values['price']);
+                    }
+                    ?>
+                    <td class="totalPrice" colspan="3">Total: $<?php echo number_format($total); ?></td>
+                <?php
+                }
+                if (isset($_GET["action"])) {
+                    if ($_GET["action"] == "delete") {
+                        foreach ($_SESSION["cart"] as $keys => $values) {
+                            if ($values["product_id"] == $_GET["id"]) {
+                                unset($_SESSION['cart'][$keys]);
+                                echo '<script>alert("Item Removed")</script>';
+                                echo '<script>window.location="cart.php"</script>';
+                            }
+                        }
+                    }
+                }
+                ?>
+            </table>
         </div>
     </div>
 </body>

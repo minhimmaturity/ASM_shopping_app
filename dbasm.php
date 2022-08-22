@@ -1,4 +1,7 @@
 <?php
+// session_start();
+?> 
+<?php
 $hostname = 'localhost';
 $username = 'root';
 $password = 'root';
@@ -23,5 +26,13 @@ function query ($sql = "") {
     $rows = $result -> fetch_all();
     $conn->close();
     return $rows;
+}
+?>
+<?php
+if(isset($_SESSION['cart'])) {
+    $count = count($_SESSION['cart']);
+    echo "<span id = 'cartCount'> ($count) </span>";
+} else {
+    echo "<span id= 'cartCount'> (0) </span>";
 }
 ?>
