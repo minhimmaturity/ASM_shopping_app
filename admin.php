@@ -11,6 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="asm.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
   <title>
     Admin
   </title>
@@ -202,7 +203,7 @@
               ?>
             </select>
           </div>
-          <input type="text" class="insertForm" name="specificDescription" value = "" placeholder = "Please enter specific description">
+          <input type="text" class="insertForm" name="specificDescription" value="" placeholder="Please enter specific description">
           <button type="submit" class="btn btn-primary" id="submitButton" name="submit">Submit</button>
         </form>
       <?php

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +18,7 @@
 </head>
 <?php
 include_once("dbasm.php");
-$sql = "Select * From account";
+$sql = "select * from account";
 $accounts = query($sql);
 ?>
 
@@ -28,7 +31,7 @@ $accounts = query($sql);
           <img src="/ASM_shopping_app/Assets/Images/electric-shop.png" alt=" " />
         </a>
       </div>
-      <p style="margin-right: 25%">Login Area</p>
+      <p style="margin-right: 87%">Login Area</p>
     </div>
   </body>
   <form class="login-form" class="was-validate" method="post" action="">
@@ -39,7 +42,7 @@ $accounts = query($sql);
       <input type="password" class="form-control" placeholder="Enter Password" name="password" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
-      <button class="btn-primary" type="submit" value="login">Login</button>
+      <button class="btn-primary" type="submit" name="login" value="login">Login</button>
       <img src="Assets/Images/borderlogin.png" />
       <div style="font-size: 12px;">
         Don't have account <a href="register.php">Register</a>
@@ -50,19 +53,34 @@ $accounts = query($sql);
     </div>
   </form>
   <?php
-  if (isset($_POST['username']) && $_POST['password']) {
+  if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
+    // $sqlLogin = "SELECT * FROM account WHERE `username` = '$username' AND `password` = '$password'";
+    // $accounts = query($sqlLogin);
+    // $accounts1 = mysqli_fetch_row($accounts);
+    // if(count($accounts1)) {
+    //  $_SESSION['login'] = $accounts1;
+    //  header('location:user.php);
+    // }
     for ($i = 0; $i < count($accounts); $i++) {
-      if ($accounts[$i][1] == $username && $accounts[$i][2] == $password && $accounts[$i][1] != 'admin' && $accounts[$i][2] != 'admin') {
-        header('location:user.php');
-      } else if ($accounts[$i][1] == $username && $accounts[$i][2] == $password && $username == 'admin' && $password == 'admin') {
+      if (
+        $accounts[$i][1] == $username && $accounts[$i][2] == $password &&
+        $accounts[$i][1] != 'admin' && $accounts[$i][2] != 'admin'
+      ) {
+        if ($_SESSION['username'] = $accounts[$i][1]) {
+          header('location:user.php');
+        }
+      } else if (
+        $accounts[$i][1] == $username && $accounts[$i][2] == $password
+        && $username == 'admin' && $password == 'admin'
+      ) {
         header('location:admin.php');
+      } else {
+        echo "<script>alert('username or password incorrect');</script>";
       }
     }
   }
-  ?>
-  <?php
   ?>
 </body>
 

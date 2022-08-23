@@ -193,7 +193,6 @@
   margin-bottom: 4%;
   text-decoration: none;
   cursor: auto;
-  margin-left: 75px;
 }
 .productIMG {
   width: 100%;
@@ -215,6 +214,7 @@
   margin-top: 4%;
   margin-bottom: 4%;
 }
+
 /* login and register */
 .login-form {
   width: 100%;
@@ -419,4 +419,21 @@ ul {
 .productDetails {
   border: 1px solid black;
   display: inherit;
+}
+
+/* cart */
+.cartTable tr {
+  border: 1px solid black;
+}
+
+.cartTable th {
+  border: 1px solid black;
+}
+
+.cartTable td {
+  border: 1px solid black;
+}
+
+.cartTable {
+  margin-bottom: 20px;
 }

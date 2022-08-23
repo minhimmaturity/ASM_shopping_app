@@ -1,5 +1,8 @@
 <?php
-session_start();
+// session_start();
+// if (!isset($_SESSION['login'])) {
+//   header("location:login.php");
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +31,6 @@ session_start();
         <img src="Assets/Images/electric-shop.png" alt="" />
       </a>
     </div>
-    <p>Admin Area</p>
     <form id="searchForm" class="inputForm" action="" method="GET">
       <input type="text" name="search" placeholder="Enter devices" />
       <button name="submit" type="button">
@@ -133,9 +135,57 @@ session_start();
     </div>
     <div class="productDisplayArea" id="productDisplayArea">
       <?php
-      include_once("product.php");
+      $conditions = "1 = 1";
+      $sql = "select * from product where $conditions";
+      if (isset($_GET['brandid'])) {
+        $sql = "Select * From `product` WHERE `brandid` = '" . $_GET['brandid'] . "' ";
+        $conditions = "brandid = " . $_GET['brandid'];
+      }
+      if (isset($_GET['catid'])) {
+        $sql = "Select * From `product` WHERE `catid` = '" . $_GET['catid'] . "' ";
+        $conditions = "catid = " . $_GET['catid'];
+      }
+      if (isset($_GET['search'])) {
+        $search = $_GET['search'];
+        $sql = "Select * From `product` WHERE `productName` like '%$search%'";
+        query($sql);
+      }
+      include_once('dbasm.php');
+      $product = query($sql);
       ?>
+
+      <?php
+      for ($i = 0; $i < count($product); $i++) {
+      ?>
+        <form action="" method="POST">
+          <a href="productdetail.php?productID=<?= $product[$i][0] ?>" style="text-decoration: none">
+            <div class="productContainer">
+              <div class="productIMG">
+                <img src="<?= $product[$i][2] ?>">
+              </div>
+          </a>
+          <div class="productName"> <?= $product[$i][1] ?> </div>
+          <div class="productPrice"> <?= $product[$i][3] ?>$</div>
+          <div class="description"> <?= $product[$i][4] ?> </div>
+          <input type="hidden" name="product_id" value="<?= $product[$i][0] ?>">
+          <input type="hidden" name="product_name" value="<?= $product[$i][1] ?>">
+          <input type="hidden" name="product_price" value="<?= $product[$i][3] ?>">
+          <button id="cartButton" type="submit" name="addCart" class="btn btn-danger">Add to cart</button>
     </div>
+    </form>
+  <?php
+      }
+  ?>
+
+  <?php
+  if (isset($_POST['addCart'])) {
+    $product_name = $_POST['product_name'];
+    $product_price = $_POST['product_price'];
+    $sql = "INSERT INTO `cart`(`name`, `price`) VALUES ('$product_name','$product_price')";
+    query($sql);
+  }
+  ?>
+  </div>
   </div>
   <script>
     const hamButton = document.getElementById('hamButton');
@@ -187,36 +237,7 @@ session_start();
   </div>
 </footer>
 <?php
-include_once('dbasm.php');
-if (isset($_POST['addCart'])) {
-  if (isset($_SESSION['cart'])) {
-    $item_array_id = array_column($_SESSION['cart'], 'product_id');
-    if (in_array($_POST['product_id'], $item_array_id)) {
-      echo "<script>alert('Product is already added in the cart...!')</script>";
-      echo "<script>window.location='user.php'</script>";
-    } else {
-      $count = count($_SESSION['cart']);
-      $item_array = array(
-        'product_id' => $_POST['product_id'],
-        'product_name' => $_POST['product_name'],
-        'product_price' => $_POST['product_price']
-      );
-      $_SESSION['cart'][$count] = $item_array;
-      print_r($_SESSION['cart']);
-    }
-  } else {
-    $item_array = array(
-      'product_id' => $_POST['product_id'],
-      'product_name' => $_POST['product_name'],
-      'product_price' => $_POST['product_price']
-    );
-    $_SESSION['cart'][0] = $item_array;
-    print_r($_SESSION['cart']);
-  }
-}
-?>
-<?php
-// echo "<script> '" . $_SESSION['cart'] . "' </script>";
+
 ?>
 
 </html>

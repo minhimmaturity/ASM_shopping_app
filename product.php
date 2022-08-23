@@ -1,4 +1,8 @@
 <?php
+session_start();
+?>
+
+<?php
 $conditions = "1 = 1";
 $sql = "select * from product where $conditions";
 if (isset($_GET['brandid'])) {
@@ -39,4 +43,43 @@ for ($i = 0; $i < count($product); $i++) {
     </form>
 <?php
 }
+?>
+
+<?php
+// if (isset($_POST['addCart'])) {
+//     if (isset($_SESSION['cart'])) {
+//         $item_array_id = array_column($_SESSION['cart'], 'product_id');
+//         if (in_array($_POST['product_id'], $item_array_id)) {
+//             echo "<script>alert('Product is already added in the cart...!')</script>";
+//             echo "<script>window.location='product.php'</script>";
+//         } else {
+//             $count = count($_SESSION['cart']);
+//             $item_array = array(
+//                 'product_id' => $_POST['product_id'],
+//                 'product_name' => $_POST['product_name'],
+//                 'product_price' => $_POST['product_price']
+//             );
+//             $_SESSION['cart'][$count] = $item_array;
+//             print_r($_SESSION['cart']);
+//         }
+//     } else {
+//         $item_array = array(
+//             'product_id' => $_POST['product_id'],
+//             'product_name' => $_POST['product_name'],
+//             'product_price' => $_POST['product_price']
+//         );
+//         $_SESSION['cart'][0] = $item_array;
+//         print_r($_SESSION['cart']);
+//     }
+// }
+// if (isset($_POST['addCart'])) {
+//     $product_name = $_POST['product_name'];
+//     $product_price = $_POST['product_price'];
+//     $sql = "INSERT INTO `cart`(`name`, `price`) VALUES ('$product_name','$product_price')";
+//     query($sql);
+// }
+// if (isset($_POST['addCart'])) {
+//     $sql = "INSERT INTO `cart`(`name`, `price`) VALUES ('iPhone 12 Pro Max 128GB | VN/A','999')";
+//     query($sql);
+// }
 ?>

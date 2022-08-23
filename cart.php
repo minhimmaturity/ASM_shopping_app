@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +23,8 @@
 </head>
 <?php
 include_once("dbasm.php");
+$sql = "select sum(price) from cart";
+$total_money = query($sql);
 ?>
 
 <body class="body" style="padding: 0; margin: 0">
@@ -36,42 +42,33 @@ include_once("dbasm.php");
         </div>
     </div>
     <div class="contentContainer">
+        <?php
+        ?>
         <div class="productDisplayArea" id="productDisplayArea">
-            <table style="width: 100%">
+            <table style="width: 100%" class="cartTable">
                 <tr>
-                    <th>Name</th>
+                    <th>Product Name</th>
                     <th>Price</th>
                     <th>Action</th>
                 </tr>
                 <?php
-                if (isset($_SESSION['cart'])) {
-                    $total = 0;
-                    foreach ($_SESSION['cart'] as $keys => $values) {
+                $sql = "select * from cart";
+                $cart = query($sql);
+                for ($i = 0; $i < count($cart); $i++) {
                 ?>
-                        <tr>
-                            <td> <?php echo $values["product_name"] ?> </td>
-                            <td> <?php echo $values["product_price"] ?> $ </td>
-                            <td> <a href="user.php?action=delete&id=<?php echo $values['product_id']; ?>">Delete</> </a> </td>
-                        </tr>
-                    <?php
-                        $total = $total + (count($values['product_price']) * $values['price']);
-                    }
-                    ?>
-                    <td class="totalPrice" colspan="3">Total: $<?php echo number_format($total); ?></td>
+                    <tr>
+                        <td> <?= $cart[$i][1] ?> </td>
+                        <td> <?= $cart[$i][2] ?> $ </td>
+                        <td>
+                            <a href="cart.php?deleteid=<?= $cart[$i][0] ?>">Delete</a>
+                        </td>
+                    </tr>
                 <?php
                 }
-                if (isset($_GET["action"])) {
-                    if ($_GET["action"] == "delete") {
-                        foreach ($_SESSION["cart"] as $keys => $values) {
-                            if ($values["product_id"] == $_GET["id"]) {
-                                unset($_SESSION['cart'][$keys]);
-                                echo '<script>alert("Item Removed")</script>';
-                                echo '<script>window.location="cart.php"</script>';
-                            }
-                        }
-                    }
-                }
                 ?>
+                <td colspan="2"> Total price </td>
+                <td> <?= $total_money[0][0] ?> $ </td>
+
             </table>
         </div>
     </div>
@@ -108,5 +105,13 @@ include_once("dbasm.php");
         </div>
     </div>
 </footer>
+<?php
+if (isset($_GET['deleteid'])) {
+    $id = $_GET['deleteid'];
+    echo "<script> '" . $id . "' </script>";
+    $sql = "delete from cart where id = '" . $id . "'";
+    query($sql);
+}
+?>
 
 </html>
