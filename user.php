@@ -1,8 +1,9 @@
 <?php
-// session_start();
-// if (!isset($_SESSION['login'])) {
-//   header("location:login.php");
-// }
+session_start();
+if (!isset($_SESSION['login'])) {
+  header("location:login.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +32,7 @@
         <img src="Assets/Images/electric-shop.png" alt="" />
       </a>
     </div>
+    <p style="margin-left: 20px"> Welcome: <?php echo $_SESSION['login']; ?> </p>
     <form id="searchForm" class="inputForm" action="" method="GET">
       <input type="text" name="search" placeholder="Enter devices" />
       <button name="submit" type="button">
@@ -38,7 +40,7 @@
       </button>
     </form>
     <div class="customerAreaContainer">
-      <a href="login.php">
+      <a href="logout.php">
         <img style="margin-left: 420px" 1 src="Assets/Icons/login_success.png" alt="" />
       </a>
       <a href="cart.php" style="margin-right: 40px">

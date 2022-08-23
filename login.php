@@ -53,31 +53,19 @@ $accounts = query($sql);
     </div>
   </form>
   <?php
+  if (isset($_SESSION['login'])) {
+    header('location:user.php');
+  }
   if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    // $sqlLogin = "SELECT * FROM account WHERE `username` = '$username' AND `password` = '$password'";
-    // $accounts = query($sqlLogin);
-    // $accounts1 = mysqli_fetch_row($accounts);
-    // if(count($accounts1)) {
-    //  $_SESSION['login'] = $accounts1;
-    //  header('location:user.php);
-    // }
     for ($i = 0; $i < count($accounts); $i++) {
-      if (
-        $accounts[$i][1] == $username && $accounts[$i][2] == $password &&
-        $accounts[$i][1] != 'admin' && $accounts[$i][2] != 'admin'
-      ) {
-        if ($_SESSION['username'] = $accounts[$i][1]) {
-          header('location:user.php');
-        }
-      } else if (
-        $accounts[$i][1] == $username && $accounts[$i][2] == $password
-        && $username == 'admin' && $password == 'admin'
-      ) {
+      if ($accounts[$i][1] == $username && $accounts[$i][2] == $password && $accounts[$i][1] != 'admin' && $accounts[$i][2] != 'admin') {
+        $_SESSION['login'] = $accounts[$i][1];
+      } else if ($accounts[$i][1] == $username && $accounts[$i][2] == $password && $username == 'admin' && $password == 'admin') {
         header('location:admin.php');
       } else {
-        echo "<script>alert('username or password incorrect');</script>";
+        echo "<script>alert('username or password incorrect')</script>";
       }
     }
   }
