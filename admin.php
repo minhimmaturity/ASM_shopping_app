@@ -1,3 +1,9 @@
+<?php
+// session_start();
+// if (!isset($_SESSION['login'])) {
+//   header("location:login.php");
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,9 +31,9 @@
         <img src="Assets/Images/electric-shop.png" alt="" />
       </a>
     </div>
-    <p style="margin-right: 45%">Admin Area</p>
+    <p style="margin-right: 45%"> Admin Area </p>
     <div class="customerAreaContainer">
-      <a href="login.php" class="logoutButton">
+      <a href="logout.php" class="logoutButton">
         <button style="border: none" type="button"> Logout </button>
       </a>
     </div>

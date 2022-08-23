@@ -60,8 +60,9 @@ $accounts = query($sql);
     $username = $_POST['username'];
     $password = $_POST['password'];
     for ($i = 0; $i < count($accounts); $i++) {
-      if ($accounts[$i][1] == $username && $accounts[$i][2] == $password && $accounts[$i][1] != 'admin' && $accounts[$i][2] != 'admin') {
+      if ($accounts[$i][1] == $username && $accounts[$i][2] == $password && $username != 'admin' && $password != 'admin') {
         $_SESSION['login'] = $accounts[$i][1];
+        header('location:user.php');
       } else if ($accounts[$i][1] == $username && $accounts[$i][2] == $password && $username == 'admin' && $password == 'admin') {
         header('location:admin.php');
       } else {
