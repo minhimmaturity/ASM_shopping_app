@@ -84,7 +84,7 @@
             <tr>
               <th style="width: 150px"> <img class="imgSize" src="<?= $product[$i][2] ?>"> </th>
               <th> <?= $product[$i][1] ?> </th>
-              <th> <?= $product[$i][3] ?> </th>
+              <th> <?= $product[$i][3] ?> $ </th>
               <th> <?= $product[$i][4] ?> </th>
               <th> <?= $product[$i][7] ?> </th>
               <th>
