@@ -23,9 +23,11 @@
         <img src="Assets/Images/electric-shop.png" alt="" />
       </a>
     </div>
-    <form class="inputForm">
-      <input type="text" placeholder="Enter devices" />
-      <img src="Assets/Icons/search_icon.png" />
+    <form id="searchForm" class="inputForm" action="" method="GET">
+      <input type="text" name="search" placeholder="Enter devices" />
+      <button name="submit" type="button">
+        <img src="Assets/Icons/search_icon.png" />
+      </button>
     </form>
     <div class="customerAreaContainer">
       <a href="login.php">
@@ -46,7 +48,7 @@
   <div class="footerContainer">
     <div class="row">
       <div class="footer-col">
-        <h4 style = "margin-left: 30px"> Company </h4>
+        <h4 style="margin-left: 30px"> Company </h4>
         <ul>
           <li> <a href="#">About Us</a> </li>
           <li> <a href="#">Our Services</a> </li>
@@ -55,7 +57,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4 style = "margin-left: 30px"> Get help </h4>
+        <h4 style="margin-left: 30px"> Get help </h4>
         <ul>
           <li> <a href="#">FAQ</a> </li>
           <li> <a href="#">Payment Options</a> </li>
@@ -66,12 +68,21 @@
       <div class="footer-col">
         <h4> Follow us </h4>
         <div class="social-links">
-          <a href="https://www.facebook.com/minhtran0612/"> <i class = "fab fa-facebook-f"> </i> </a>
-          <a href="#"> <i class = "fab fa-instagram"> </i> </a>
-          <a href="#"> <i class = "fab fa-youtube"> </i> </a>
+          <a href="https://www.facebook.com/minhtran0612/"> <i class="fab fa-facebook-f"> </i> </a>
+          <a href="#"> <i class="fab fa-instagram"> </i> </a>
+          <a href="#"> <i class="fab fa-youtube"> </i> </a>
         </div>
       </div>
     </div>
   </div>
 </footer>
+<?php
+include_once("dbasm.php");
+// if (isset($_GET['search'])) {
+//   $search = $_GET['search'];
+//   $sql = "Select * From `product` WHERE `productName` like '%$search%'";
+//   query($sql);
+// }
+?>
+
 </html>

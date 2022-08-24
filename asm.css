@@ -103,7 +103,7 @@
   width: 15%;
   border: 1px solid black;
   border-radius: 10px;
-  background: rgb(202, 202, 202);
+  background: #fff;
   padding-bottom: 1%;
   margin-bottom: 2%;
   transition-duration: 0.4s;
@@ -436,4 +436,20 @@ ul {
 
 .cartTable {
   margin-bottom: 20px;
+}
+
+.cartForm {
+  margin-left: 450px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+#orderButton {
+  margin-left: 450px;
+}
+
+/* a little side nav */
+.sideNavBar a {
+  text-decoration: none;
+  color: #bbbbbb;
 }

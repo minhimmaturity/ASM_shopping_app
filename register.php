@@ -59,10 +59,7 @@
   </form>
   <?php
   include_once("dbasm.php");
-  if (
-    $_POST['userName'] != "" && $_POST['Email'] != "" && $_POST['PhoneNumber'] != "" && $_POST['birthday']  != ""
-    && $_POST['UserPassword'] != ""  && $_POST['cPassword'] != ""
-  ) {
+  if (isset($_POST['submit'])) {
     echo "<script> 'Register Successfully'</script>";
     $userName = $_POST['userName'];
     $Email = $_POST['Email'];
@@ -71,9 +68,13 @@
     $UserPassword = $_POST['UserPassword'];
     $cPassword = $_POST['cPassword'];
     $sql = "INSERT INTO `account`( `username`, `password`, `email`, `birthdate`, `phone_number`)
-    VALUES ('$userName','$UserPassword','$Email','$birthday','$PhoneNumber')";
+      VALUES ('$userName','$UserPassword','$Email','$birthday','$PhoneNumber')";
     query($sql);
   }
+  echo "<script> alert('create user successfully') </script>";
+  //else if ($account[$i][1] == $userName && $account[$i][3] == $Email) {
+  //   echo "<script> alert('Account already exists!') </script>";
+  // }
   ?>
 </body>
 

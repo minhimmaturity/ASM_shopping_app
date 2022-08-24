@@ -32,6 +32,11 @@ if (!isset($_SESSION['login'])) {
       </a>
     </div>
     <p style="margin-left: 20px"> Welcome: <?php echo $_SESSION['login']; ?> </p>
+    <?php
+    if ($_SESSION['login'] == "admin") {
+      echo "<a href = 'admin.php' > Admin </a>";
+    }
+    ?>
     <form id="searchForm" class="inputForm" action="" method="GET">
       <input type="text" name="search" placeholder="Enter devices" />
       <button name="submit" type="button">
@@ -82,6 +87,7 @@ if (!isset($_SESSION['login'])) {
     <div class="sideNavBar" id="sideNavBar">
       <img src="./Assets/Icons/menu.png" class="hamButton" id="hamButton">
       <p>Device</p>
+      <a href="user.php">Home</a>
       <?php
       include_once('device.php');
       ?>
@@ -136,25 +142,24 @@ if (!isset($_SESSION['login'])) {
     </div>
     <div class="productDisplayArea" id="productDisplayArea">
       <?php
-      $conditions = "1 = 1";
-      $sql = "select * from product where $conditions";
+      $sql = "select * from product";
+      // $conditions = "1 = 1";
+      // $sql = "select * from product where $conditions";
       if (isset($_GET['brandid'])) {
         $sql = "Select * From `product` WHERE `brandid` = '" . $_GET['brandid'] . "' ";
-        $conditions = "brandid = " . $_GET['brandid'];
+        // $conditions = "brandid = " . $_GET['brandid'];
       }
       if (isset($_GET['catid'])) {
         $sql = "Select * From `product` WHERE `catid` = '" . $_GET['catid'] . "' ";
-        $conditions = "catid = " . $_GET['catid'];
+        // $conditions = "catid = " . $_GET['catid'];
       }
       if (isset($_GET['search'])) {
         $search = $_GET['search'];
         $sql = "Select * From `product` WHERE `productName` like '%$search%'";
-        query($sql);
       }
       include_once('dbasm.php');
       $product = query($sql);
       ?>
-
       <?php
       for ($i = 0; $i < count($product); $i++) {
       ?>

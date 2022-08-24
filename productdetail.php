@@ -39,72 +39,16 @@ include_once("dbasm.php");
             <a href="login.php">
                 <img style="margin-left: 420px" 1 src="Assets/Icons/login_success.png" alt="" />
             </a>
-            <img src="Assets/Icons/shopping-cart_icon.png" alt="" />
+            <a href="cart.php">
+                <img style="width: 20px; margin-right: 35px" src="Assets/Icons/shopping-cart_icon.png" alt="" />
+            </a>
         </div>
     </div>
     <div class="contentContainer">
-        <div class="sideNavBar" id="sideNavBar">
-            <img src="./Assets/Icons/menu.png" class="hamButton" id="hamButton">
-            <p>Device</p>
-            <?php
-            include_once('device.php');
-            ?>
-            <p> Brand List </p>
-            <?php
-            include_once('brand.php');
-            ?>
-            <div class="moneyContainer">
-                <p> Limit Price</p>
-                <input type="text" placeholder="Min"> -
-                <input type="text" placeholder="Max"></input></input>
-            </div>
-            <div class="starRating">
-                <p>Star rating</p>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                <input type="checkbox" class="oneStar">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star "></span>
-                <span class="fa fa-star "></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                </input> <br>
-                <input type="checkbox" class="twoStar">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star "></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                </input> <br>
-                <input type="checkbox" class="threeStar">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                </input> <br>
-                <input type="checkbox" class="fourStar">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                </input> <br>
-                <input type="checkbox" class="fiveStar">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                </input> <br>
-            </div>
-        </div>
         <div class="productDisplayArea" id="productDisplayArea" style="margin-left: 180px">
             <?php
-            $conditions = "1 = 1";
-            $sql = "select * from product where $conditions";
             if (isset($_GET['productID'])) {
                 $sql = "Select * From `product` WHERE `productID` = '" . $_GET['productID'] . "' ";
-                $conditions = "brandid = " . $_GET['brandid'];
                 $product = query($sql);
                 for ($i = 0; $i < count($product); $i++) {
             ?>
@@ -112,12 +56,17 @@ include_once("dbasm.php");
                         <div class="specificIMG">
                             <img src="<?= $product[$i][2] ?>">
                         </div>
-                        <div class="specificContainer">
-                            <div class="specificName"> <?= $product[$i][1] ?> </div>
-                            <div class="productDescription"> <?= $product[$i][7] ?> </div>
-                            <div class="specificPrice"> <?= $product[$i][3] ?> </div>
-                            <button id="cartButton" type="button" class="btn btn-danger" style="margin-left: 200px">Add to cart</button>
-                        </div>
+                        <form action="" method="POST">
+                            <div class="specificContainer">
+                                <div class="specificName"> <?= $product[$i][1] ?> </div>
+                                <div class="productDescription"> <?= $product[$i][7] ?> </div>
+                                <div class="specificPrice"> <?= $product[$i][3] ?> $ </div>
+                                <input type="hidden" name="product_id" value="<?= $product[$i][0] ?>">
+                                <input type="hidden" name="product_name" value="<?= $product[$i][1] ?>">
+                                <input type="hidden" name="product_price" value="<?= $product[$i][3] ?>">
+                                <button id="cartButton" type="submit" class="btn btn-danger" name="addCart" style="margin-left: 200px">Add to cart</button>
+                            </div>
+                        </form>
                     </div>
             <?php
                 }
@@ -126,22 +75,6 @@ include_once("dbasm.php");
 
         </div>
     </div>
-    <script>
-        const hamButton = document.getElementById('hamButton');
-        const sideNavBar = document.getElementById('sideNavBar');
-        let opened = false;
-        hamButton.addEventListener("click", () => {
-            if (!opened) {
-                sideNavBar.classList.add("open");
-                hamButton.src = "./Assets/Icons/close.png";
-                opened = true;
-            } else {
-                sideNavBar.classList.remove("open");
-                hamButton.src = "./Assets/Icons/menu.png";
-                opened = false;
-            }
-        })
-    </script>
 </body>
 <footer class="footer">
     <div class="footerContainer">
@@ -175,5 +108,13 @@ include_once("dbasm.php");
         </div>
     </div>
 </footer>
+<?php
+if (isset($_POST['addCart'])) {
+    $product_name = $_POST['product_name'];
+    $product_price = $_POST['product_price'];
+    $sql = "INSERT INTO `cart`(`name`, `price`) VALUES ('$product_name','$product_price')";
+    query($sql);
+}
+?>
 
 </html>

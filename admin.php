@@ -235,8 +235,10 @@
     $category = $_POST['category'];
     $brand = $_POST['brand'];
     $specificDescription = $_POST['specificDescription'];
-    $sql = "INSERT INTO `product`(`productID`, `productName`, `productIMG`, `productPrice`, `description`, `catid`, `brandid`, 'specific description') 
-    VALUES ('$id','$name','$path','$price','$description','$category','$brand', '$specificDescription')" or die('cannot insert');
+    $sql = "INSERT INTO `product`(`productID`, `productName`, `productIMG`, `productPrice`, `description`, `catid`, `brandid`, `specific description`) 
+    VALUES ('$id','$name','$path','$price','$description','$category','$brand','$specificDescription')";
+    // $sql = "INSERT INTO `product`(`productID`, `productName`, `productIMG`, `productPrice`, `description`, `catid`, `brandid`, 'specific description') 
+    // VALUES ('$id','$name','$path','$price','$description','$category','$brand', '$specificDescription')";
     query($sql);
   }
   if (isset($_GET['deleteid'])) {
@@ -263,8 +265,10 @@
     $category = $_POST['category'];
     $brand = $_POST['brand'];
     $specificDescription = $_POST['specificDescription'];
-    $sql = "UPDATE `product` SET `productName`='$name',`productIMG`='$path'
-    ,`productPrice`='$price',`description`='$description',`catid`='$category',`brandid`='$brand', `specific description`='$specificDescription' WHERE `productID` = '" . $id . "' ";
+    $sql = "UPDATE `product` SET `productName`='$name',`productIMG`='$path',`productPrice`='$price',`description`='$description'
+    ,`catid`='$category',`brandid`='$brand',`specific description`='$specificDescription' WHERE `productID`='" . $id . "' ";
+    // $sql = "UPDATE `product` SET `productName`='$name',`productIMG`='$path',`productPrice`='$price'
+    // ,`description`='$description',`catid`='$category',`brandid`='$brand',  `specific description`='$specificDescription' WHERE `productID` = '" . $id . "' ";
     query($sql);
   }
   ?>

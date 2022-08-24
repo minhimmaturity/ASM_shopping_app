@@ -58,6 +58,7 @@ $total_money = query($sql);
                 ?>
                     <tr>
                         <td> <?= $cart[$i][1] ?> </td>
+                        <input type="hidden" name="name" value="<?= $cart[$i][1] ?>" ?>
                         <td> <?= $cart[$i][2] ?> $ </td>
                         <td>
                             <a href="cart.php?deleteid=<?= $cart[$i][0] ?>">Delete</a>
@@ -68,8 +69,11 @@ $total_money = query($sql);
                 ?>
                 <td colspan="2"> Total price </td>
                 <td> <?= $total_money[0][0] ?> $ </td>
-
+                <input type="hidden" name="total_money" value="<?= $total_money[0][0] ?>">
             </table>
+            <!-- <input type="text" class="cartForm" name="user_name" value= disabled>
+                <input type="text" class="cartForm" name="user_address" placeholder="Please enter address">
+                <button style="margin-left: 20px" type="submit" name="order" class="btn btn-primary">Order</button> -->
         </div>
     </div>
 </body>
