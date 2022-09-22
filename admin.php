@@ -166,7 +166,7 @@
               ?>
             </select>
           </div>
-          <input type="text" class="insertForm" name="specificDescription" value="<?= $update[0][7] ?>">
+          <textarea type="text" class="insertForm" name="specificDescription" value=""> <?= $update[0][7] ?> </textarea>
           <button type="submit" class="btn btn-primary" id="submitButton" name="update">Update</button>
         </form>
       <?php
@@ -209,7 +209,7 @@
               ?>
             </select>
           </div>
-          <input type="text" class="insertForm" name="specificDescription" value="" placeholder="Please enter specific description">
+          <textarea type="text" class="insertForm" name="specificDescription" value="" placeholder="Please enter specific description"></textarea>
           <button type="submit" class="btn btn-primary" id="submitButton" name="submit">Submit</button>
         </form>
       <?php

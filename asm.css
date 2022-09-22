@@ -394,6 +394,7 @@ ul {
   height: 700px;
   border: 1px solid black;
   margin-bottom: 2%;
+  display: inherit;
 }
 
 .specificIMG {
@@ -416,10 +417,7 @@ ul {
   color: red;
 }
 
-.productDetails {
-  border: 1px solid black;
-  display: inherit;
-}
+
 
 /* cart */
 .cartTable tr {
@@ -451,5 +449,5 @@ ul {
 /* a little side nav */
 .sideNavBar a {
   text-decoration: none;
-  color: #bbbbbb;
+  color: black;
 }

@@ -71,7 +71,7 @@
       VALUES ('$userName','$UserPassword','$Email','$birthday','$PhoneNumber')";
     query($sql);
   }
-  echo "<script> alert('create user successfully') </script>";
+  
   //else if ($account[$i][1] == $userName && $account[$i][3] == $Email) {
   //   echo "<script> alert('Account already exists!') </script>";
   // }

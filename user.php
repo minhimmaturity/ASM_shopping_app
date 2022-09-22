@@ -34,7 +34,7 @@ if (!isset($_SESSION['login'])) {
     <p style="margin-left: 20px"> Welcome: <?php echo $_SESSION['login']; ?> </p>
     <?php
     if ($_SESSION['login'] == "admin") {
-      echo "<a href = 'admin.php' > Admin </a>";
+      echo "<a href = 'admin.php' style = 'text-decoration: none' > Admin </a>";
     }
     ?>
     <form id="searchForm" class="inputForm" action="" method="GET">
@@ -86,8 +86,8 @@ if (!isset($_SESSION['login'])) {
     </div>
     <div class="sideNavBar" id="sideNavBar">
       <img src="./Assets/Icons/menu.png" class="hamButton" id="hamButton">
-      <p>Device</p>
       <a href="user.php">Home</a>
+      <p>Device</p>
       <?php
       include_once('device.php');
       ?>
@@ -95,50 +95,6 @@ if (!isset($_SESSION['login'])) {
       <?php
       include_once('brand.php');
       ?>
-      <div class="moneyContainer">
-        <p> Limit Price</p>
-        <input type="text" placeholder="Min"> -
-        <input type="text" placeholder="Max"></input></input>
-      </div>
-      <div class="starRating">
-        <p>Star rating</p>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <input type="checkbox" class="oneStar">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star "></span>
-        <span class="fa fa-star "></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        </input> <br>
-        <input type="checkbox" class="twoStar">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star "></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        </input> <br>
-        <input type="checkbox" class="threeStar">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        </input> <br>
-        <input type="checkbox" class="fourStar">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        </input> <br>
-        <input type="checkbox" class="fiveStar">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        </input> <br>
-      </div>
     </div>
     <div class="productDisplayArea" id="productDisplayArea">
       <?php

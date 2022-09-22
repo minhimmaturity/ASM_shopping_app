@@ -28,7 +28,7 @@ include_once("dbasm.php");
                 <img src="Assets/Images/electric-shop.png" alt="" />
             </a>
         </div>
-        <p>Admin Area</p>
+        
         <form id="searchForm" class="inputForm" action="" method="GET">
             <input type="text" name="search" placeholder="Enter devices" />
             <button name="submit" type="button">
